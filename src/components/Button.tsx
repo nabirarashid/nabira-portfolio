@@ -5,9 +5,9 @@ interface Props {
 }
 const Button = ({ text, onClick, className }: Props) => {
   return (
-    <div className={`flex justify-center ${className}`}>
+    <div className={`flex ${className}`}>
       <button
-        className={"m-4 bg-pink-100 hover:bg-pink-300 text-black font-bold py-3 px-6 rounded"}
+        className={"rounded-md bg-pink-200 px-3 py-2 text-sm font-medium text-black hover:bg-pink-300"}
         onClick={onClick}
       >
         {text}

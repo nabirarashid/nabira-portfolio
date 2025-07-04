@@ -1,20 +1,19 @@
-import Intro from './components/Intro'
-import Button from './components/Button'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from './pages/Home'
+import Projects from './pages/Projects'
+import About from './pages/About'
+import Navbar from "./components/Navbar";
 
 const App = () => {
-
-  const openLink = (url : string) => {window.open(url, '_blank');}
-
   return (
-    <div className = "bg-black text-white">
-      <Intro />
-      <Button text ="LinkedIn" onClick = {() => openLink("https://ca.linkedin.com/in/nabira-rashid-46338a283")}/>
-      <Button text ="Github" onClick = {() => openLink("https://github.com/nabirarashid/")}/>
-      <Button text ="STEM From Scratch" onClick = {() => openLink("https://stemfromscratch.wordpress.com/welcome/")}/>
-      <Button text ="Blog: Tech Tapestry by Nabira" onClick = {() => openLink("https://techtapestrybynabira.blogspot.com/")}/>
-      <Button text ="Non-Profit: Limitless Learning" onClick = {() => openLink("https://limitlesslearningi.wixsite.com/limitless-learning")}/>
-      <Button text ="Email" onClick = {() => openLink("nabira.rashidm@gmail.com")} className = "pb-8"/>
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/about" element={<About />} />
+    </Routes>
+    </Router>
   )
 }
 
