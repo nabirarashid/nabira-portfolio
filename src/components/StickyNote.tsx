@@ -55,9 +55,8 @@ const StickyNote: React.FC<StickyNoteProps> = ({
         <h3 className="text-3xl font-bold text-gray-800 mb-3 underline decoration-2 decoration-gray-600">
           {title}
         </h3>
-        <p className="text-gray-700 text-l leading-relaxed flex-grow overflow-hidden whitespace-pre-line">
-          {content}
-        </p>
+        <p className="text-gray-700 text-l leading-relaxed flex-grow overflow-hidden whitespace-pre-line"
+          dangerouslySetInnerHTML={{__html: content}} />
       </div>
     </div>
   );

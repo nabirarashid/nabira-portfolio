@@ -7,24 +7,71 @@ import 'swiper/css/navigation';
 
 const photos = [
     {
-        src: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Yamaha_Saxophone_YAS-62.tif/lossy-page1-800px-Yamaha_Saxophone_YAS-62.tif.jpg",
+        src: "/assets/website/ramen.jpg",
         caption: "live love laugh band",
     },
     {
-        src: "https://thevarsity.ca/wp-content/uploads/2018/08/SCIENCE_Myhal_Centre-ANISHA_ROHRA_THE_VARSITY-Myhal_Centre_tour6_web.jpg",
-        caption: "uofthacks @ myhal centre",
+        src: "/assets/website/eureka.jpg",
+        caption: "organizing eurekahacks!",
     },
     {
-        src: "https://www.shutterstock.com/editorial/image-editorial/M6T6M553N7T7U6z6MTMxODE=/taylor-swift-440nw-13831852dt.jpg",
+        src: "/assets/website/ts.jpg",
         caption: "taylor swift concert",
+    },
+    {
+        src: "/assets/website/canada.jpg",
+        caption: "lli @ canada day",
+    },
+    {
+        src: "/assets/website/band.jpg",
+        caption: "spring concert!",
+    },
+    {
+        src: "/assets/website/maya.jpg",
+        caption: "gr 11 semi formal",
+    },
+    {
+        src: "/assets/website/laugh.jpg",
+        caption: "tech bros",
+    },
+    {
+        src: "/assets/website/htn.jpg",
+        caption: "hack the north 24",
+    },
+    {
+        src: "/assets/website/jes.jpg",
+        caption: "me and jessie <3",
+    },
+    {
+        src: "/assets/website/krispy.jpg",
+        caption: "lli & krispy kreme sale",
+    },
+    {
+        src: "/assets/website/winter.JPG",
+        caption: "sax section 24-25",
+    },
+    {
+        src: "/assets/website/gasp.jpg",
+        caption: "teen builders",
+    },
+    {
+        src: "/assets/website/hotchoc.jpg",
+        caption: "lli & hot choco",
+    },
+    {
+        src: "/assets/website/relayuni.jpg",
+        caption: "relay university",
+    },
+    {
+        src: "/assets/website/prom.JPG",
+        caption: "prom 24",
     }
-    // ill add more later
 ];
 
 const CoreMemories = () => {
   return (
-    <div className="w-full max-w-3xl mx-auto py-8">
-      <h2 className="text-xl font-bold text-center mb-4">my core memories</h2>
+    <div className="w-full max-w-3xl mx-auto">
+      <h2 className="text-xl font-bold text-center mb-4">my core memories ♡</h2>
       <Swiper
         modules={[Pagination, Navigation]}
         pagination={{ clickable: true }}
@@ -39,9 +86,9 @@ const CoreMemories = () => {
               <img
                 src={photo.src}
                 alt={photo.caption}
-                className="rounded-lg w-full max-h-[400px] object-cover mb-2"
+                className="rounded-lg w-full max-h-[500px] object-cover mb-2"
               />
-              <p className="py-6 text-center text-zinc-600">{photo.caption}</p>
+              <p className="py-10 text-center font-bold text-zinc-600">{photo.caption}</p>
             </div>
           </SwiperSlide>
         ))}
