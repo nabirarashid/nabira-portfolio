@@ -12,12 +12,16 @@ const photos = [
     caption: "organizing eurekahacks!",
   },
   {
-    src: "/assets/website/ts.jpg",
+    src: "/assets/website/ts.JPG",
     caption: "taylor swift concert",
   },
   {
     src: "/assets/website/canada.jpg",
     caption: "lli @ canada day",
+  },
+  {
+    src: "/assets/website/news.jpg",
+    caption: "on the news!",
   },
   {
     src: "/assets/website/band.jpg",
@@ -44,8 +48,8 @@ const photos = [
     caption: "lli & krispy kreme sale",
   },
   {
-    src: "/assets/website/winter.JPG",
-    caption: "sax section 24-25",
+    src: "/assets/website/halloween.JPG",
+    caption: "halloween w favs",
   },
   {
     src: "/assets/website/gasp.jpg",

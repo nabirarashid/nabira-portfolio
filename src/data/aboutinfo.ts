@@ -53,7 +53,6 @@ const aboutinfo: AboutInfo[] = [
     mediaType: "image",
     media: "/assets/website/oyac.JPEG",
   },
-  
 ];
 
 export default aboutinfo;

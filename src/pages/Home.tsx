@@ -1,7 +1,7 @@
-import ProjectCard from '../components/ProjectCard'
-import projects from "../data/projects"
-import Typewriter from "typewriter-effect"
-import Button from '../components/Button'
+import ProjectCard from "../components/ProjectCard";
+import projects from "../data/projects";
+import Typewriter from "typewriter-effect";
+import Button from "../components/Button";
 
 const Home = () => {
   const shuffledProjects = projects.sort(() => 0.5 - Math.random());
@@ -18,49 +18,58 @@ const Home = () => {
               <div className="text-zinc-800 text-xl font-bold font-['Nunito'] uppercase">
                 high school student, developer
               </div>
-              
+
               <div className="flex flex-col gap-8">
                 <h1 className="text-zinc-800 text-4xl lg:text-6xl font-bold font-['Playfair_Display'] leading-tight">
                   hey, my name is nabira
                 </h1>
-                
+
                 <div className="flex flex-col gap-6">
                   <p className="text-zinc-500 text-xl font-semibold leading-9">
-                    hey there, i'm nabira! i'm an IB student from Oakville and my interests lie in 
-                    computer science, technology and music. i love yapping and making new friends, 
-                    so feel free to reach out :)
+                    hey there, i'm nabira! i'm an IB student from Oakville and
+                    my interests lie in computer science, technology and music.
+                    i love yapping and making new friends, so feel free to reach
+                    out :)
                   </p>
-                  
+
                   <div className="min-h-[60px]">
                     <Typewriter
                       options={{
                         strings: [
-                          "i love coding personal projects!", 
-                          "hackathons (and roblox) are my hobbies LOL", 
-                          "i love coffee (i had a pretty bad obsession a while ago)"
+                          "i love coding personal projects!",
+                          "hackathons (and roblox) are my hobbies LOL",
+                          "i love coffee (i had a pretty bad obsession a while ago)",
                         ],
                         autoStart: true,
                         loop: true,
                         delay: 50,
                         deleteSpeed: 20,
                         cursor: "|",
-                        wrapperClassName: "text-zinc-500 text-lg"
+                        wrapperClassName: "text-zinc-500 text-lg",
                       }}
                     />
                   </div>
-                  
+
                   <div className="flex flex-wrap gap-3">
                     <Button
                       text="projects"
-                      onClick={() => { window.location.href = "/projects"; }}
+                      onClick={() => {
+                        window.location.href = "/projects";
+                      }}
                     />
-                    <Button 
-                      text="linkedin" 
-                      onClick={() => window.location.href = "https://www.linkedin.com/in/nabira-rashid-46338a283/"} 
+                    <Button
+                      text="linkedin"
+                      onClick={() =>
+                        (window.location.href =
+                          "https://www.linkedin.com/in/nabira-rashid-46338a283/")
+                      }
                     />
-                    <Button 
-                      text="github" 
-                      onClick={() => window.location.href = "https://github.com/nabirarashid/"} 
+                    <Button
+                      text="github"
+                      onClick={() =>
+                        (window.location.href =
+                          "https://github.com/nabirarashid/")
+                      }
                     />
                   </div>
                 </div>
@@ -73,10 +82,10 @@ const Home = () => {
             <div className="relative">
               {/* Background decorative circle */}
               <div className="absolute inset-0 w-120 h-120 bg-pink-900 rounded-full transform -translate-x-4 -translate-y-4" />
-              <img 
-                className="w-120 h-120 object-cover rounded-full relative z-10" 
-                src="/assets/image.jpg" 
-                alt="Profile Image" 
+              <img
+                className="w-120 h-120 object-cover rounded-full relative z-10"
+                src="/assets/image.jpg"
+                alt="Profile Image"
               />
             </div>
           </div>
@@ -89,8 +98,6 @@ const Home = () => {
           <h2 className="text-center text-zinc-800 text-4xl font-bold">
             (some of) my projects!
           </h2>
-          
-          <div className="flex flex-col gap-10 w-full max-w-4xl">
             {displayedProjects.map((project: any, index: number) => (
               <ProjectCard
                 key={index}
@@ -103,9 +110,8 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </div>      
-    </div>
-  )
-}
+      </div>
+  );
+};
 
-export default Home
+export default Home;
