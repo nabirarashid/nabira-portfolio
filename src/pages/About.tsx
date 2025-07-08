@@ -10,7 +10,7 @@ const About = () => {
     <div className="bg-slate-50 flex flex-col justify-center items-center gap-10 px-40">
       <h1 className="text-center py-4 justify-start text-zinc-800 text-5xl font-bold leading-[72px]">about me!</h1>
 
-      { aboutinfo.map((info, index) => (
+      { aboutinfo.map((info: any, index: number) => (
       
       <div
         key={index}

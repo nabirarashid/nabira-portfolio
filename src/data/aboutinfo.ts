@@ -1,4 +1,11 @@
-const aboutinfo = [
+export interface AboutInfo {
+  title: string;
+  content: string;
+  mediaType: "image" | "video" | "frame";
+  media?: string;
+}
+
+const aboutinfo: AboutInfo[] = [
   {
     title: "hackathons",
     content:

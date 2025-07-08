@@ -1,4 +1,12 @@
-const projects = [
+export interface Project {
+  title: string;
+  description: string;
+  link: string;
+  techStack: string[];
+  details: string;
+}
+
+const projects: Project[] = [
   {
     title: "brand reach",
     description: "an ai-powered content generator and auto-poster.",

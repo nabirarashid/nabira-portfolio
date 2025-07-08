@@ -91,7 +91,7 @@ const Home = () => {
           </h2>
           
           <div className="flex flex-col gap-10 w-full max-w-4xl">
-            {displayedProjects.map((project, index) => (
+            {displayedProjects.map((project: any, index: number) => (
               <ProjectCard
                 key={index}
                 name={project.title}

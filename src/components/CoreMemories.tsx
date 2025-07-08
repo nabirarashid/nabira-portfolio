@@ -1,71 +1,68 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
-import { Navigation } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 
 const photos = [
-    {
-        src: "/assets/website/ramen.jpg",
-        caption: "live love laugh band",
-    },
-    {
-        src: "/assets/website/eureka.jpg",
-        caption: "organizing eurekahacks!",
-    },
-    {
-        src: "/assets/website/ts.jpg",
-        caption: "taylor swift concert",
-    },
-    {
-        src: "/assets/website/canada.jpg",
-        caption: "lli @ canada day",
-    },
-    {
-        src: "/assets/website/band.jpg",
-        caption: "spring concert!",
-    },
-    {
-        src: "/assets/website/maya.jpg",
-        caption: "gr 11 semi formal",
-    },
-    {
-        src: "/assets/website/laugh.jpg",
-        caption: "tech bros",
-    },
-    {
-        src: "/assets/website/htn.jpg",
-        caption: "hack the north 24",
-    },
-    {
-        src: "/assets/website/jes.jpg",
-        caption: "me and jessie <3",
-    },
-    {
-        src: "/assets/website/krispy.jpg",
-        caption: "lli & krispy kreme sale",
-    },
-    {
-        src: "/assets/website/winter.JPG",
-        caption: "sax section 24-25",
-    },
-    {
-        src: "/assets/website/gasp.jpg",
-        caption: "teen builders",
-    },
-    {
-        src: "/assets/website/hotchoc.jpg",
-        caption: "lli & hot choco",
-    },
-    {
-        src: "/assets/website/relayuni.jpg",
-        caption: "relay university",
-    },
-    {
-        src: "/assets/website/prom.JPG",
-        caption: "prom 24",
-    }
+  {
+    src: "/assets/website/ramen.jpg",
+    caption: "live love laugh band",
+  },
+  {
+    src: "/assets/website/eureka.jpg",
+    caption: "organizing eurekahacks!",
+  },
+  {
+    src: "/assets/website/ts.jpg",
+    caption: "taylor swift concert",
+  },
+  {
+    src: "/assets/website/canada.jpg",
+    caption: "lli @ canada day",
+  },
+  {
+    src: "/assets/website/band.jpg",
+    caption: "spring concert!",
+  },
+  {
+    src: "/assets/website/maya.jpg",
+    caption: "gr 11 semi formal",
+  },
+  {
+    src: "/assets/website/laugh.jpg",
+    caption: "tech bros",
+  },
+  {
+    src: "/assets/website/htn.jpg",
+    caption: "hack the north 24",
+  },
+  {
+    src: "/assets/website/jes.jpg",
+    caption: "me and jessie <3",
+  },
+  {
+    src: "/assets/website/krispy.jpg",
+    caption: "lli & krispy kreme sale",
+  },
+  {
+    src: "/assets/website/winter.JPG",
+    caption: "sax section 24-25",
+  },
+  {
+    src: "/assets/website/gasp.jpg",
+    caption: "teen builders",
+  },
+  {
+    src: "/assets/website/hotchoc.jpg",
+    caption: "lli & hot choco",
+  },
+  {
+    src: "/assets/website/relayuni.jpg",
+    caption: "relay university",
+  },
+  {
+    src: "/assets/website/prom.JPG",
+    caption: "prom 24",
+  },
 ];
 
 const CoreMemories = () => {
@@ -88,13 +85,15 @@ const CoreMemories = () => {
                 alt={photo.caption}
                 className="rounded-lg w-full max-h-[500px] object-cover mb-2"
               />
-              <p className="py-10 text-center font-bold text-zinc-600">{photo.caption}</p>
+              <p className="py-10 text-center font-bold text-zinc-600">
+                {photo.caption}
+              </p>
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
     </div>
-  )
-}
+  );
+};
 
-export default CoreMemories
+export default CoreMemories;
