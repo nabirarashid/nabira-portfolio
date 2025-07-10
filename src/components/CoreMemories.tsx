@@ -48,7 +48,7 @@ const photos = [
     caption: "lli & krispy kreme sale",
   },
   {
-    src: "/assets/website/halloween.JPG",
+    src: "/assets/website/halloween.jpg",
     caption: "halloween w favs",
   },
   {
