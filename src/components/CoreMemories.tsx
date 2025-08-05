@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { ChevronLeft, ChevronRight, Heart } from 'lucide-react';
+import { useState } from "react";
+import { ChevronLeft, ChevronRight, Heart } from "lucide-react";
 
 const photos = [
   {
@@ -11,7 +11,7 @@ const photos = [
     caption: "organizing eurekahacks!",
   },
   {
-    src: "/assets/website/ts.JPG",
+    src: "/assets/website/ts.jpg",
     caption: "taylor swift concert",
   },
   {
@@ -104,24 +104,28 @@ const CoreMemories = () => {
 
       {/* Main carousel */}
       <div className="relative">
-        
         {/* Image container */}
         <div className="relative bg-gradient-to-br from-pink-100 to-pink-50 rounded-2xl p-6 shadow-lg">
           <div className="relative overflow-hidden rounded-xl bg-white shadow-md">
-            
             {/* Navigation buttons */}
             <button
               onClick={prevSlide}
               className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 bg-white/90 backdrop-blur-sm rounded-full shadow-lg transform transition-all duration-200 hover:scale-110 hover:bg-pink-50 group"
             >
-              <ChevronLeft className="text-pink-600 group-hover:text-pink-700" size={20} />
+              <ChevronLeft
+                className="text-pink-600 group-hover:text-pink-700"
+                size={20}
+              />
             </button>
-            
+
             <button
               onClick={nextSlide}
               className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 bg-white/90 backdrop-blur-sm rounded-full shadow-lg transform transition-all duration-200 hover:scale-110 hover:bg-pink-50 group"
             >
-              <ChevronRight className="text-pink-600 group-hover:text-pink-700" size={20} />
+              <ChevronRight
+                className="text-pink-600 group-hover:text-pink-700"
+                size={20}
+              />
             </button>
 
             {/* Image */}
@@ -132,11 +136,12 @@ const CoreMemories = () => {
                 className="w-full h-full object-cover transition-all duration-500 hover:scale-105"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
+                  target.style.display = "none";
                   const parent = target.parentElement;
-                  if (parent && !parent.querySelector('.error-placeholder')) {
-                    const placeholder = document.createElement('div');
-                    placeholder.className = 'error-placeholder w-full h-full bg-gradient-to-br from-pink-100 to-pink-200 flex items-center justify-center';
+                  if (parent && !parent.querySelector(".error-placeholder")) {
+                    const placeholder = document.createElement("div");
+                    placeholder.className =
+                      "error-placeholder w-full h-full bg-gradient-to-br from-pink-100 to-pink-200 flex items-center justify-center";
                     placeholder.innerHTML = `
                       <div class="text-center text-pink-600">
                         <div class="text-6xl mb-4">📸</div>
@@ -168,8 +173,8 @@ const CoreMemories = () => {
               onClick={() => goToSlide(index)}
               className={`transition-all duration-300 rounded-full ${
                 index === currentIndex
-                  ? 'w-8 h-3 bg-gradient-to-r from-pink-500 to-pink-600 shadow-md'
-                  : 'w-3 h-3 bg-pink-200 hover:bg-pink-300 hover:scale-125'
+                  ? "w-8 h-3 bg-gradient-to-r from-pink-500 to-pink-600 shadow-md"
+                  : "w-3 h-3 bg-pink-200 hover:bg-pink-300 hover:scale-125"
               }`}
             />
           ))}
@@ -189,9 +194,9 @@ const CoreMemories = () => {
               key={index}
               onClick={() => goToSlide(index)}
               className={`relative flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden transition-all duration-300 ${
-                index === currentIndex 
-                  ? 'ring-3 ring-pink-400 ring-offset-2 scale-110 shadow-lg' 
-                  : 'opacity-60 hover:opacity-100 hover:scale-105'
+                index === currentIndex
+                  ? "ring-3 ring-pink-400 ring-offset-2 scale-110 shadow-lg"
+                  : "opacity-60 hover:opacity-100 hover:scale-105"
               }`}
             >
               <img
@@ -200,12 +205,13 @@ const CoreMemories = () => {
                 className="w-full h-full object-cover"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
+                  target.style.display = "none";
                   const parent = target.parentElement;
-                  if (parent && !parent.querySelector('.thumb-error')) {
-                    const placeholder = document.createElement('div');
-                    placeholder.className = 'thumb-error w-full h-full bg-gradient-to-br from-pink-100 to-pink-200 flex items-center justify-center text-pink-600 text-xl';
-                    placeholder.innerHTML = '📸';
+                  if (parent && !parent.querySelector(".thumb-error")) {
+                    const placeholder = document.createElement("div");
+                    placeholder.className =
+                      "thumb-error w-full h-full bg-gradient-to-br from-pink-100 to-pink-200 flex items-center justify-center text-pink-600 text-xl";
+                    placeholder.innerHTML = "📸";
                     parent.appendChild(placeholder);
                   }
                 }}
