@@ -1,6 +1,5 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
-import { Navigation } from "swiper/modules";
+import { useState } from 'react';
+import { ChevronLeft, ChevronRight, Heart } from 'lucide-react';
 
 const photos = [
   {
@@ -48,10 +47,6 @@ const photos = [
     caption: "lli & krispy kreme sale",
   },
   {
-    src: "/assets/website/halloween.jpg",
-    caption: "halloween w favs",
-  },
-  {
     src: "/assets/website/gasp.jpg",
     caption: "teen builders",
   },
@@ -70,32 +65,155 @@ const photos = [
 ];
 
 const CoreMemories = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const nextSlide = () => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => (prev + 1) % photos.length);
+    setTimeout(() => setIsTransitioning(false), 300);
+  };
+
+  const prevSlide = () => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => (prev - 1 + photos.length) % photos.length);
+    setTimeout(() => setIsTransitioning(false), 300);
+  };
+
+  const goToSlide = (index: number) => {
+    if (isTransitioning || index === currentIndex) return;
+    setIsTransitioning(true);
+    setCurrentIndex(index);
+    setTimeout(() => setIsTransitioning(false), 300);
+  };
+
   return (
-    <div className="w-full max-w-3xl mx-auto">
-      <h2 className="text-xl font-bold text-center mb-4">my core memories ♡</h2>
-      <Swiper
-        modules={[Pagination, Navigation]}
-        pagination={{ clickable: true }}
-        spaceBetween={20}
-        slidesPerView={1}
-        loop={true}
-        navigation={true}
-      >
-        {photos.map((photo, id) => (
-          <SwiperSlide key={id}>
-            <div className="flex flex-col items-center">
+    <div className="w-full max-w-4xl mx-auto px-4 py-8">
+      {/* Title */}
+      <div className="text-center mb-8">
+        <div className="flex items-center justify-center gap-3 mb-3">
+          <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-pink-800">
+            my core memories
+          </h2>
+          <Heart className="text-pink-500" size={28} fill="currentColor" />
+        </div>
+        <div className="w-16 h-1 bg-gradient-to-r from-pink-400 to-pink-600 rounded-full mx-auto" />
+      </div>
+
+      {/* Main carousel */}
+      <div className="relative">
+        
+        {/* Image container */}
+        <div className="relative bg-gradient-to-br from-pink-100 to-pink-50 rounded-2xl p-6 shadow-lg">
+          <div className="relative overflow-hidden rounded-xl bg-white shadow-md">
+            
+            {/* Navigation buttons */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 bg-white/90 backdrop-blur-sm rounded-full shadow-lg transform transition-all duration-200 hover:scale-110 hover:bg-pink-50 group"
+            >
+              <ChevronLeft className="text-pink-600 group-hover:text-pink-700" size={20} />
+            </button>
+            
+            <button
+              onClick={nextSlide}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 bg-white/90 backdrop-blur-sm rounded-full shadow-lg transform transition-all duration-200 hover:scale-110 hover:bg-pink-50 group"
+            >
+              <ChevronRight className="text-pink-600 group-hover:text-pink-700" size={20} />
+            </button>
+
+            {/* Image */}
+            <div className="aspect-[4/3] w-full overflow-hidden">
+              <img
+                src={photos[currentIndex].src}
+                alt={photos[currentIndex].caption}
+                className="w-full h-full object-cover transition-all duration-500 hover:scale-105"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  const parent = target.parentElement;
+                  if (parent && !parent.querySelector('.error-placeholder')) {
+                    const placeholder = document.createElement('div');
+                    placeholder.className = 'error-placeholder w-full h-full bg-gradient-to-br from-pink-100 to-pink-200 flex items-center justify-center';
+                    placeholder.innerHTML = `
+                      <div class="text-center text-pink-600">
+                        <div class="text-6xl mb-4">📸</div>
+                        <div class="font-medium">${photos[currentIndex].caption}</div>
+                      </div>
+                    `;
+                    parent.appendChild(placeholder);
+                  }
+                }}
+              />
+            </div>
+
+            {/* Image overlay with caption */}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent">
+              <div className="p-6">
+                <p className="text-white text-lg font-semibold text-center drop-shadow-lg">
+                  {photos[currentIndex].caption}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Pagination dots */}
+        <div className="flex justify-center gap-2 mt-6">
+          {photos.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`transition-all duration-300 rounded-full ${
+                index === currentIndex
+                  ? 'w-8 h-3 bg-gradient-to-r from-pink-500 to-pink-600 shadow-md'
+                  : 'w-3 h-3 bg-pink-200 hover:bg-pink-300 hover:scale-125'
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Counter */}
+        <div className="text-center mt-4 text-pink-600 font-medium">
+          {currentIndex + 1} of {photos.length}
+        </div>
+      </div>
+
+      {/* Thumbnail strip */}
+      <div className="mt-6 overflow-x-auto pb-2">
+        <div className="flex gap-3 min-w-max px-2">
+          {photos.map((photo, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`relative flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden transition-all duration-300 ${
+                index === currentIndex 
+                  ? 'ring-3 ring-pink-400 ring-offset-2 scale-110 shadow-lg' 
+                  : 'opacity-60 hover:opacity-100 hover:scale-105'
+              }`}
+            >
               <img
                 src={photo.src}
                 alt={photo.caption}
-                className="rounded-lg w-full max-h-[500px] object-cover mb-2"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  const parent = target.parentElement;
+                  if (parent && !parent.querySelector('.thumb-error')) {
+                    const placeholder = document.createElement('div');
+                    placeholder.className = 'thumb-error w-full h-full bg-gradient-to-br from-pink-100 to-pink-200 flex items-center justify-center text-pink-600 text-xl';
+                    placeholder.innerHTML = '📸';
+                    parent.appendChild(placeholder);
+                  }
+                }}
               />
-              <p className="py-10 text-center font-bold text-zinc-600">
-                {photo.caption}
-              </p>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+            </button>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

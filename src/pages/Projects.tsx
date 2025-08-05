@@ -24,7 +24,13 @@ const Projects = () => {
         }}
       />
       <div className="py-4 flex flex-col gap-10">
-        {projects.map((project: any, index: number) => (
+        {projects.map((project: {
+          title: string;
+          description: string;
+          link: string;
+          techStack: string[];
+          details?: string;
+        }, index: number) => (
           <ProjectCard
             key={index}
             name={project.title}

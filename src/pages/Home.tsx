@@ -1,5 +1,5 @@
 import ProjectCard from "../components/ProjectCard";
-import projects from "../data/projects";
+import projects, { Project } from "../data/projects";
 import Typewriter from "typewriter-effect";
 import Button from "../components/Button";
 
@@ -98,19 +98,19 @@ const Home = () => {
           <h2 className="text-center text-zinc-800 text-4xl font-bold">
             (some of) my projects!
           </h2>
-            {displayedProjects.map((project: any, index: number) => (
-              <ProjectCard
-                key={index}
-                name={project.title}
-                description={project.description}
-                link={project.link}
-                techStack={project.techStack}
-                details={project.details}
-              />
-            ))}
-          </div>
+          {displayedProjects.map((project: Project, index: number) => (
+            <ProjectCard
+              key={index}
+              name={project.title}
+              description={project.description}
+              link={project.link}
+              techStack={project.techStack}
+              details={project.details}
+            />
+          ))}
         </div>
       </div>
+    </div>
   );
 };
 
