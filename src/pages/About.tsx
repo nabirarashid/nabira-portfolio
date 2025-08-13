@@ -37,20 +37,26 @@ const About = () => {
               />
 
               {info.mediaType === "image" ? (
-                <img
-                  src={info.media}
-                  alt={`Media for ${info.title}`}
-                  className="w-110 h-70 
-              transition-all duration-300
-              hover:scale-105 hover:shadow-xl
-              cursor-pointer
-              object-cover
-              rounded-lg shadow-lg"
-                />
+                <div className="w-110 h-70 flex items-center justify-center">
+                  <img
+                    src={info.media}
+                    alt={`Media for ${info.title}`}
+                    className="w-full h-full
+                transition-all duration-300
+                hover:scale-105 hover:shadow-xl
+                cursor-pointer
+                object-cover
+                rounded-lg shadow-lg"
+                  />
+                </div>
               ) : info.mediaType === "video" ? (
-                <MusicVideo />
+                <div className="w-110 h-70 flex items-center justify-center">
+                  <MusicVideo />
+                </div>
               ) : info.mediaType === "frame" ? (
-                <InstagramPost />
+                <div className="w-80 h-60 flex items-center justify-center">
+                  <InstagramPost />
+                </div>
               ) : null}
             </div>
           )
