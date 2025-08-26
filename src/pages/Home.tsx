@@ -79,7 +79,7 @@ const Home = () => {
 
           {/* Right Side - Image */}
           <div className="lg:w-1/2 relative flex items-center justify-center">
-            <div className="relative">
+            <div className="relative hover:rotate-6 transition-transform duration-500">
               {/* Background decorative circle */}
               <div className="absolute inset-0 w-120 h-120 bg-pink-900 rounded-full transform -translate-x-4 -translate-y-4" />
               <img
